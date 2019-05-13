@@ -1,8 +1,6 @@
 # acm-letsencrypt-greenlock-express
 
-## server.js
-
-TODO:
+## TODO:
 
 1. Register domains thorugh `/register`.
     a. Create object in DynamoDB
