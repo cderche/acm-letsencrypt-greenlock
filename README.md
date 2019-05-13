@@ -1,3 +1,8 @@
+[![CircleCI](https://circleci.com/gh/cderche/acm-letsencrypt-greenlock.svg?style=svg)](https://circleci.com/gh/cderche/acm-letsencrypt-greenlock)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/7eea8f4f4408d74db5c9/maintainability)](https://codeclimate.com/github/cderche/acm-letsencrypt-greenlock/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7eea8f4f4408d74db5c9/test_coverage)](https://codeclimate.com/github/cderche/acm-letsencrypt-greenlock/test_coverage)
+
 # acm-letsencrypt-greenlock-express
 
 ## TODO:
