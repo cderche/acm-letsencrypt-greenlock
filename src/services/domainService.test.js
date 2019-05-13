@@ -1,7 +1,7 @@
 const domainService = require('./domainService');
 
 const AWS = require('aws-sdk');
-AWS.config.update({region: process.env.AWS_REGION});
+AWS.config.update({region: process.env.AWS_DEFAULT_REGION});
 const ddb = new AWS.DynamoDB();
 
 const TableName = process.env.AWS_DYNAMODB_TABLE_NAME

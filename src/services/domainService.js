@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk');
-AWS.config.update({region: process.env.AWS_REGION});
+AWS.config.update({region: process.env.AWS_DEFAULT_REGION});
 AWS.config.setPromisesDependency(require('bluebird'));
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 
