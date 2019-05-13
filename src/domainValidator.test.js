@@ -27,24 +27,18 @@ const validDomains = [
     , 'www.my-website.com'
 ]
 
+const validateDomains = (array, expectedOutcome) => {
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        test(element, () => {
+            expect(domainValidator.isValid(element)).toBe(expectedOutcome);
+        });
+    }
+}
+
 describe("Validate Domain Names", () => {
 
-    for (let i = 0; i < invalidDomains.length; i++) {
-        const element = invalidDomains[i];
-        const title = "Invalid domain: " + element
-        
-        test(title, () => {
-            expect(domainValidator.isValid(element)).toBe(false);
-        });
-    }
-
-    for (let i = 0; i < validDomains.length; i++) {
-        const element = validDomains[i];
-        const title = "Valid domain: " + element
-        
-        test(title, () => {
-            expect(domainValidator.isValid(element)).toBe(true);
-        });
-    }
+    validateDomains(invalidDomains, false);
+    validateDomains(validDomains, true);
 
 });
