@@ -18,5 +18,8 @@
   "homepage": "https://github.com/cderche/acm-letsencrypt-greenlock#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }
