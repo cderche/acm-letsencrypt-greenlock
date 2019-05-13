@@ -4,7 +4,7 @@
   "description": "Application Stack enabling you to issue LetsEncrypt Certificates and upload them to AWS ACM (for use with ALB)",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
