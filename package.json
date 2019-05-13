@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cderche/acm-letsencrypt-greenlock/issues"
   },
-  "homepage": "https://github.com/cderche/acm-letsencrypt-greenlock#readme"
+  "homepage": "https://github.com/cderche/acm-letsencrypt-greenlock#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
