@@ -1,11 +1,16 @@
-const express = require('express');
-const app = express();
+const   express = require('express')
+        , bodyParser = require('body-parser')
+        , app = express();
 
-app.get('/register', (req, res) => {
-    if (!req.query.hasOwnProperty('hostname')) {
+app.use(bodyParser.json());
+
+app.post('/domains', (req, res) => {
+    if (!req.body.hasOwnProperty('hostname')) {
         res.sendStatus(400);
-    } else if (!require('./domainValidator').isValid(req.query.hostname)) {
+    } else if (!require('./domainValidator').isValid(req.body.hostname)) {
         res.sendStatus(422);
+    } else {
+        // Handle domain creation
     }
 });
 
