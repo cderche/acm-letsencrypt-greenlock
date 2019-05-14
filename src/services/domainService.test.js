@@ -82,10 +82,14 @@ describe("Domain service", () => {
 
             });
 
-        }).error(err => {
-            console.log("Error JSON:", JSON.stringify(err));
         })
 
-    })
+    });
+
+    test("getDomain", () => {
+        return domainService.getDomain(params).then(data => {
+            expect(data.Key).toBe(params.Key)
+        });
+    });
 
 })
