@@ -13,10 +13,10 @@ app.post('/domains', (req, res) => {
     } else {
         // Handle domain creation
         const params = { Hostname: req.body.Hostname };
-        console.log(params);
+        // console.log(params);
         
         return domainService.putDomain(params).then(data => {
-            console.debug('Created domain', JSON.stringify(data));
+            // console.debug('Created domain', JSON.stringify(data));
             res.json(data);
         }).catch(err => {
             console.error("Error:", err.message);
