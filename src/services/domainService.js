@@ -1,39 +1,49 @@
 const AWS = require('aws-sdk');
-AWS.config.update({region: process.env.AWS_DEFAULT_REGION});
+AWS.config.update({
+    region: process.env.AWS_DEFAULT_REGION
+    , endpoint: process.env.DYNAMO_ENDPOINT
+});
 AWS.config.setPromisesDependency(require('bluebird'));
-const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
+const docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 
 const TableName = process.env.AWS_DYNAMODB_TABLE_NAME;
+
+const putParams = (params) => {
+    return {
+        TableName
+        , Item: params
+        // , ReturnValues: "ALL_OLD"
+    }
+}
 
 const getParams = (params) => {
     return {
         TableName
         , Key: { Hostname: params.Hostname }
     }
-}
+};
 
-const putParams = (params) => {
-    return {
-        TableName
-        , Item: params
+module.exports = () => {
+
+    const handlers = {
+
+        count: () => {
+            // console.debug('domainService.count()');
+            return docClient.scan({ TableName, Select: "COUNT" }).promise();
+        }
+
+        , putDomain: (params) => {
+            // console.debug('domainService.putDomain()', params);
+            return docClient.put(putParams(params)).promise();
+        }
+
+        , getDomain: (params) => {
+            // console.debug('domainService.getDomain()', params);
+            return docClient.get(getParams(params)).promise();
+        }
+
     }
+
+    return handlers;
+
 }
-
-const service = {};
-
-service.count = () => {
-    console.debug('domainService.count()');
-    return docClient.scan({ TableName, Select: "COUNT" }).promise();
-}
-
-service.setDomain = (params) => {
-    console.debug('domainService.setDomain()');
-    return docClient.put(putParams(params)).promise();
-}
-
-service.getDomain = (params) => {
-    console.debug('domainService.getDomain()');
-    return docClient.get(getParams(params)).promise();
-}
-
-module.exports = service;

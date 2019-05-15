@@ -4,7 +4,9 @@
   "description": "Application Stack enabling you to issue LetsEncrypt Certificates and upload them to AWS ACM (for use with ALB)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --detectOpenHandles",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "dotenv": "^8.0.0",
     "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
     "supertest": "^4.0.2"
   }
 }

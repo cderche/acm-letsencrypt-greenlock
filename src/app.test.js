@@ -3,10 +3,10 @@ const app = require('./app');
 
 const array = [
     { name: "No hostname", path: "/domains", statusCode: 400 }
-    , { name: "Invalid hostname", path: "/domains", body: { hostname: "invalid" }, statusCode: 422 }
-    // , { name: "Existing hostname", path: "/domains", body: { hostname: "existing.com" }, statusCode: 409 }
-    // , { name: "New hostname", path: "/domains", body: { hostname: "new.com" }, statusCode: 200 }
-    // , { name: "Unknown error", path: '/domains', body: { hostname: "unknown.com" }, statusCode: 400 }
+    , { name: "Invalid hostname", path: "/domains", body: { Hostname: "invalid" }, statusCode: 422 }
+    , { name: "New hostname", path: "/domains", body: { Hostname: "new.com" }, statusCode: 200 }
+    // , { name: "Existing hostname", path: "/domains", body: { Hostname: "existing.com" }, statusCode: 409 }
+    // , { name: "Unknown error", path: '/domains', body: { Hostname: "unknown.com" }, statusCode: 400 }
 ]
 
 describe('POST /domains', () => {

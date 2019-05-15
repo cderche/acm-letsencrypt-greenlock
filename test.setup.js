@@ -3,6 +3,7 @@ AWS.config.update({
     region: process.env.AWS_DEFAULT_REGION
     , endpoint: process.env.DYNAMO_ENDPOINT
 });
+AWS.config.setPromisesDependency(require('bluebird'));
 const ddb = new AWS.DynamoDB();
 
 const TableName = process.env.AWS_DYNAMODB_TABLE_NAME;
