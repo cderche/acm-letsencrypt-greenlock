@@ -19,7 +19,7 @@ app.post('/domains', (req, res) => {
             // console.debug('Created domain', JSON.stringify(data));
             res.json(data);
         }).catch(err => {
-            console.error("Error:", err.message);
+            // console.error("Error:", err.message);
             res.sendStatus(409);
         });
     }

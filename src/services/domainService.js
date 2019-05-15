@@ -12,7 +12,7 @@ const putParams = (params) => {
     return {
         TableName
         , Item: params
-        // , ReturnValues: "ALL_OLD"
+        , ConditionExpression: "attribute_not_exists(Hostname)"
     }
 }
 

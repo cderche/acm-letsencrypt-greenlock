@@ -5,9 +5,15 @@ const array = [
     { name: "No hostname", path: "/domains", statusCode: 400 }
     , { name: "Invalid hostname", path: "/domains", body: { Hostname: "invalid" }, statusCode: 422 }
     , { name: "New hostname", path: "/domains", body: { Hostname: "new.com" }, statusCode: 200 }
-    // , { name: "Existing hostname", path: "/domains", body: { Hostname: "existing.com" }, statusCode: 409 }
+    , { name: "Existing hostname", path: "/domains", body: { Hostname: "existing.com" }, statusCode: 409 }
     // , { name: "Unknown error", path: '/domains', body: { Hostname: "unknown.com" }, statusCode: 400 }
 ]
+
+beforeAll(() => {
+    return require('./services/domainService')().putDomain({
+        Hostname: "existing.com"
+    })
+})
 
 describe('POST /domains', () => {
 
